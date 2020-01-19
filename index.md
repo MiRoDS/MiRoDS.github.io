@@ -19,3 +19,5 @@ Is there a way to predict the actual scores rating from the features of an accom
 ## 4. Modelling
 
 ## 5. Results
+
+If you want to see some more details, see my Jupyter notebook I have created for this analysis in my GitHub repository: https://github.com/MiRoDS/DataScience_Project1
