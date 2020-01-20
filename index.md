@@ -1,7 +1,7 @@
 # How to make MOST of your let accommendations - Are there easy ways to INCREASE your review scores rating?
 
 ## Introduction
-AirBNB is obviously a great way to make some extra money if you own some unused space in a popular city. However, how can you optimize this since you compete with many other accommendations. What would people select for a stay if there are different options fulfilling their requirements in terms of location, amenities, size, and similar features? Yes, the price is probably an important thing. But this definitly depends also on the peoples overall budget they want to spend. In the end, the review scores rating by other visitors might play an important role.
+AirBNB is obviously a great way to make some extra money if you own some unused space in a popular city. However, how can you optimize this since you compete with many other accommendations? What would people select for a stay if there are different options fulfilling their requirements in terms of location, amenities, size, and similar features? Yes, the price is probably an important thing. But this definitly depends also on the peoples overall budget they want to spend. In the end, the review scores rating by other visitors might play an important role.
 
 Is there a way to predict the actual scores rating from the features of an accommendation? If so, could you increase your scores rating by adding a few additional amenities to your accommendation? Let´s take a look into some data to get an answer: In my analysis, I used Boston AirBNB data downloaded from Kaggle. The data is available [here](https://www.kaggle.com/airbnb/boston/data) (select the file "listings.csv"). It consists of data from 3585 accommendations in Boston.
 
