@@ -65,6 +65,6 @@ The results shows that there seems to be no way to predict the reviews scores ra
 
 The reason to give a high or a low rating might base in the end on the overall experience of a stay. It is not about price or amentities, since here people can have anyway completely different demands. You can be very happy in a sparse room. In the end, it might be e.g. about support of the renters in case of issues or other soft factors. This is something for which an additional analysis would be interesting. However, we cannot not learn this from the given dataset.
 
-Nevertheless, I also like to also note that the distribution of review scores rating itself might be a source for the result.
+Nevertheless, I also like to also note that the distribution of review scores rating itself was bit challenging due to its strong skewness. It would be worth to find out why this is the case. Since a high fraction of accommendations have a top rating, it might be that there is a trend to overrate the stay which is a bit surprising since one can also assume that people who are disappointed from their stay give a bad review score. A theory would be that low rated accommendations are removed by theier owners and registered again. This needs to be check with the terms of reference of AirBNB.
 
 If you want to see some more details, see my Jupyter notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project1).
