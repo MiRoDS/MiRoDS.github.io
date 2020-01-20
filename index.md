@@ -56,6 +56,10 @@ To answer this question, a linear regression model has been trained based on the
 ## Final questions 5: Is there a way to predict the review scores rating based on amenities and price?
 Since question 1 and 2 showed slight correlation of price with the review scores rating, the price has been added to build the model. However, the R^2 has not been changed much with a value of 0.0285.
 
+![Number of features vs R2](./images/question5-1.png "Number of features vs R2")
+
+![Number of features vs R2](./images/question5-2.png "Number of features vs R2")
+
 ## Conclusion
 The results shows that there seems to be no way to predict the reviews scores rating from the information of an accommendation in the dataset. This might be disappointing to owners of unused space in the big attractive cities on this plant. However, one possible explanation might also be a bit soothing:
 
