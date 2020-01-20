@@ -12,7 +12,7 @@ Although there is one main question described above, there are a number of addit
 * Question 2: Are there differences in review scores rating and price between different neighbourhoods? This is something you cannot influence if you have a given accommendation for let.
 * Question 3: Is there a relation between number of reviews and review scores rating?
 * Question 4: Is there a relation between amenities and review scores rating? Which amenties seems to be the most important ones?
-* Final questions 5: Is there a way to predict the review scores rating based on the other information from the dataset?
+* Final questions 5: Is there a way to predict the review scores rating based on amenities and price?
 
 Note: Although I focused on the price per night and the overall review scores rating. There are some specific columns in the dataset like weekly price or the rating for cleaniness, but these are not taken into account here. 
 
@@ -41,7 +41,7 @@ It has been checked whether there are differences in review scores ratings and p
 
 ![Scatterplot: Price against review scores rating](./images/question2.png "Price against review scores rating")
 
-It is not looking nice but the Pearsons correlation coefficient is already 0.318. Thus, there is a dependency to the neighbourhood. Higher ratings indicates here to stay in a more expensive neighbourhood. However, this cannot be influences by the renter. Furthermore, the correlation is still weak since a lot of people might decide to stay in a specific neighborhood for specific reasons not covered here and others might be completely happy with a cheap neighbourhood.
+It is not looking nice but the Pearsons correlation coefficient is already 0.318. Thus, there is a dependency to the neighbourhood. Higher ratings indicates here to stay in a more expensive neighbourhood. However, this cannot be influences by the renter. Thus, it is removed from further analysis. The same holds for property type and room type. Thus, these columns are no longer taken into account.
 
 ## Question 3: Is there a relation between number of reviews and review scores rating?
 Before making predictions, it is checked whether the number of reviews show some correlation with the review scores rating, especially due to the very strongly skewed distribution of review scores rating.
@@ -51,13 +51,16 @@ Before making predictions, it is checked whether the number of reviews show some
 The scatterplot shows an interesting pattern, however, the correlation coefficient not indicates a relation between the two measures (Pearson correlation coefficient: 0.023). Obviously, the individual review score rating means of accommendations with a lower number of reviews have a higher variance in comparison to accommendations with many reviews. Thus, the number of reviews is not taken into account for the further analysis.
 
 ## Question 4: Is there a relation between amenities and review scores rating?
-To answer this question, a linear regression model has been trained based on the presence or absence of 42 different amenities in the dataset to predict the review scores rating. The result is a bit disappointing. The R^2 fit value is just at 0.028.
+To answer this question, a linear regression model has been trained based on the presence or absence of 42 different amenities in the dataset to predict the review scores rating. The result is a bit disappointing. The R^2 fit value is just at 0.0277.
 
-## Final questions 5: Is there a way to predict the review scores rating based on the other information from the dataset?
+## Final questions 5: Is there a way to predict the review scores rating based on amenities and price?
+Since question 1 and 2 showed slight correlation of price with the review scores rating, the price has been added to build the model. However, the R^2 has not been changed much with a value of 0.0285.
 
 ## Conclusion
 The results shows that there seems to be no way to predict the reviews scores rating from the information of an accommendation in the dataset. This might be disappointing to owners of unused space in the big attractive cities on this plant. However, one possible explanation might also be a bit soothing:
 
-The reason to give a high or a low rating might base in the end on the overall experience of a stay. It is not about price or amentities, since here people can have anyway completly different demands. In the end, it might be e.g. about support of the renters in case of issues or other soft factors. This is something for which an additional analysis would be interesting. However, we cannot not learn this from the given dataset.
+The reason to give a high or a low rating might base in the end on the overall experience of a stay. It is not about price or amentities, since here people can have anyway completely different demands. You can be very happy in a sparse room. In the end, it might be e.g. about support of the renters in case of issues or other soft factors. This is something for which an additional analysis would be interesting. However, we cannot not learn this from the given dataset.
+
+Nevertheless, I also like to also note that the distribution of review scores rating itself might be a source for the result.
 
 If you want to see some more details, see my Jupyter notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project1).
