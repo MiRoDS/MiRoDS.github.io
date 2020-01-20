@@ -8,9 +8,9 @@ Is there a way to predict the actual scores rating from the features of an accom
 ## Business questions
 Although there is one main question described above, there are a number of additional questions which help to answer how to increase your score rating.
 
-* Question 1: Is there a relation between price and review scores rating, e.g. for low and high prices?
+* Question 1: Is there a correlation between price and review scores rating, e.g. for low and high prices?
 * Question 2: Are there differences in review scores rating and price between different neighbourhoods? This is something you cannot influence if you have a given accommendation for let.
-* Question 3: Is there a relation between number of reviews and review scores rating?
+* Question 3: Is there a correlation between number of reviews and review scores rating?
 * Question 4: Is there a relation between amenities and review scores rating? Which amenties seems to be the most important ones?
 * Final questions 5: Is there a way to predict the review scores rating based on amenities and price?
 
@@ -29,7 +29,7 @@ Furthermore, the distribution of amenties over all accommendations has been calu
 
 ![Histogram: Distribution of amenities](./images/amenities_hist.png "Distribution of amenities")
 
-## Question 1: Is there a relation between price and review scores rating?
+## Question 1: Is there a correlation between price and review scores rating?
 The price might be an important factor for the the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommendation with a high price have higher demansds and would not tolerate any shortcomings which would result in a lower rating. However, the following scatter plot shows the relation between the two measures:
 
 ![Scatterplot: Relation between price and review scores rating](./images/question1.png "Relation between price and review scores rating")
@@ -43,7 +43,7 @@ It has been checked whether there are differences in review scores ratings and p
 
 It is not looking nice but the Pearsons correlation coefficient is already 0.318. Thus, there is a dependency to the neighbourhood. Higher ratings indicates here to stay in a more expensive neighbourhood. However, this cannot be influences by the renter. Thus, it is removed from further analysis. The same holds for property type and room type. Thus, these columns are no longer taken into account.
 
-## Question 3: Is there a relation between number of reviews and review scores rating?
+## Question 3: Is there a correlation between number of reviews and review scores rating?
 Before making predictions, it is checked whether the number of reviews show some correlation with the review scores rating, especially due to the very strongly skewed distribution of review scores rating.
 
 ![Scatterplot: Number of reviews against review scores rating](./images/question3.png "Number of reviews against review scores rating")
@@ -54,11 +54,19 @@ The scatterplot shows an interesting pattern, however, the correlation coefficie
 To answer this question, a linear regression model has been trained based on the presence or absence of 42 different amenities in the dataset to predict the review scores rating. The result is a bit disappointing. The R^2 fit value is just at 0.0277.
 
 ## Final questions 5: Is there a way to predict the review scores rating based on amenities and price?
-Since question 1 and 2 showed slight correlation of price with the review scores rating, the price has been added to build the model. However, the R^2 has not been changed much with a value of 0.0285.
+Since question 1 and 2 showed slight correlation of price with review scores rating, the price has been added to build the model. However, the R^2 has not been changed much with a value of 0.0285. The fully uncover the possibilities, an optimization has been used to try different linear models with a different number of features.
+
+These are the results.
 
 ![Number of features vs R2](./images/question5-1.png "Number of features vs R2")
 
+The plot shows a very weak R^2 values already on the training data. For test data the model is useless.
+
+In order to show that the approach itself works fine, price and review scores rating have been exchanged by each other in a final experiment. This means that review scores rating and amenities have been used to predict the price. The same type of linear regression has been performed as before. See the results here:
+
 ![Number of features vs R2](./images/question5-2.png "Number of features vs R2")
+
+Now it looks completely different. The R^2 values are much better and the model also work comparably well on the test set.
 
 ## Conclusion
 The results shows that there seems to be no way to predict the reviews scores rating from the information of an accommendation in the dataset. This might be disappointing to owners of unused space in the big attractive cities on this plant. However, one possible explanation might also be a bit soothing:
