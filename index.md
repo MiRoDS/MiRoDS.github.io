@@ -17,7 +17,7 @@ Although there is one main question described above, there are a number of addit
 ## Data preparation
 Before starting the analysis, it was necassary to prepare the data. For example, the price column contained $-signs and commas as decimal seperators. The amentites of the different accommendations have been encoded as combined strings in one column of the dataset. Furthermore, there are several categorial varibales e.g. for neighbourhood and type of the property. These columns have been replaced by binary dummy columns in order to allow the creation of linear regression models.
 
-## Question 1: Is there a relation between price an review scores rating?
+## Question 1: Is there a relation between price and review scores rating?
 The price might be an important factor for the the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommendation with a high price have higher demansds and would not tolerate any shortcomings which would result in a lower rating. However, the following scatter plot shows the relation between the two measures:
 
 ![Scatterplot: Relation between price and review scores rating](./images/question1.png "Relation between price and review scores rating")
