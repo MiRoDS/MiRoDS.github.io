@@ -39,11 +39,16 @@ Although, it uncovers some trend, the Pearsons correlation coefficient is just a
 ## Question 2: Are there differences in review scores rating and price between different neighbourhoods?
 It has been checked whether there are differences in review scores ratings and price between different neighbourhoods. Obviously, there are price differences between different neighbourhoods in every city. However, what if a scatterplot is used to compare the review scores rating and the price for each accommendation based on the mean values for each neighbourhood. It looks as follows:
 
-![Scatterplot: Price against review scores rating](./images/question2.png "Price against review scores rating"
+![Scatterplot: Price against review scores rating](./images/question2.png "Price against review scores rating")
 
 It is not looking nice but the Pearsons correlation coefficient is already 0.318. Thus, there is a dependency to the neighbourhood. Higher ratings indicates here to stay in a more expensive neighbourhood. However, this cannot be influences by the renter. Furthermore, the correlation is still weak since a lot of people might decide to stay in a specific neighborhood for specific reasons not covered here and others might be completely happy with a cheap neighbourhood.
 
 ## Question 3: Is there a relation between number of reviews and review scores rating?
+Before making predictions, it is checked whether the number of reviews show some correlation with the review scores rating, especially due to the very strongly skewed distribution of review scores rating.
+
+![Scatterplot: Number of reviews against review scores rating](./images/question3.png "Number of reviews against review scores rating")
+
+The scatterplot shows an interesting pattern, however, the correlation coefficient not indicates a relation between the two measures (Pearson correlation coefficient: 0.023). Obviously, the individual review score rating means of accommendations with a lower number of reviews have a higher variance in comparison to accommendations with many reviews. Thus, the number of reviews is not taken into account for the further analysis.
 
 ## Question 4: Is there a relation between amenities and review scores rating?
 
