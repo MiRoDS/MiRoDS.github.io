@@ -51,6 +51,7 @@ Before making predictions, it is checked whether the number of reviews show some
 The scatterplot shows an interesting pattern, however, the correlation coefficient not indicates a relation between the two measures (Pearson correlation coefficient: 0.023). Obviously, the individual review score rating means of accommendations with a lower number of reviews have a higher variance in comparison to accommendations with many reviews. Thus, the number of reviews is not taken into account for the further analysis.
 
 ## Question 4: Is there a relation between amenities and review scores rating?
+To answer this question, a linear regression model has been trained based on the presence or absence of 42 different amenities in the dataset to predict the review scores rating. The result is a bit disappointing. The R^2 fit value is just at 0.028.
 
 ## Final questions 5: Is there a way to predict the review scores rating based on the other information from the dataset?
 
