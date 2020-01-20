@@ -17,13 +17,13 @@ Although there is one main question described above, there are a number of addit
 Note: Although I focused on the price per night and the overall review scores rating. There are some specific columns in the dataset like weekly price or the rating for cleaniness, but these are not taken into account here. 
 
 ## Data understanding and preparation
-Before starting the analysis, it was necassary to prepare the data. For example, the price column contained $-signs and commas as decimal seperators. The amentites of the different accommendations have been encoded as combined strings in one column of the dataset. Furthermore, there are several categorial varibales e.g. for neighbourhood and type of the property. These columns have been replaced by binary dummy columns in order to allow the creation of linear regression models.
+Before starting the analysis, it was necassary to prepare the data. For example, the price column contained $-signs and commas as decimal seperators. The amenities of the different accommendations have been encoded as combined strings in one column of the dataset. Furthermore, there are several categorial varibales e.g. for neighbourhood and type of the property. These columns have been replaced by binary dummy columns in order to allow the creation of linear regression models. Finally, rows with missing values in the review scores rating column have been removed which reduces the number of rows to 2772.
 
 The following histograms show the distributions of the price and the review scores rating. It is noticeable that the distribution of the rating is strongly left-skewed and that nearly a fifth of the accommendation has the highest possible rating.
 
-![Histogram: Distribution of the review scores rating](./images/review_scores_rating_hist.png "Distribution of the review scores rating")
-
 ![Histogram: Distribution of the price (per night)](./images/price_hist.png "Distribution of the price (per night)")
+
+![Histogram: Distribution of the review scores rating](./images/review_scores_rating_hist.png "Distribution of the review scores rating")
 
 Furthermore, the distribution of amenties over all accommendations has been caluculated. It is shown in the following plot.
 
@@ -34,9 +34,14 @@ The price might be an important factor for the the review scores rating. Maybe a
 
 ![Scatterplot: Relation between price and review scores rating](./images/question1.png "Relation between price and review scores rating")
 
-Although, it shows some relation, the Pearsons correlation coeficient is just at 0.106, indicating only a slight correlation. Interestingly, the variance in review scores rating is higher in lower price regions. In high price regions, there seem to be no real bad ratings. Nevertheless, the number of data points is relatively low here. Thus, as an answer, yes, there is a slight correlation.
+Although, it uncovers some trend, the Pearsons correlation coefficient is just at 0.106, indicating only a slight correlation. Interestingly, the variance in review scores rating is higher in lower price regions. In high price regions, there seem to be no real bad ratings. Nevertheless, the number of data points is relatively low here. Thus, as an answer, yes, there is a slight correlation.
 
 ## Question 2: Are there differences in review scores rating and price between different neighbourhoods?
+It has been checked whether there are differences in review scores ratings and price between different neighbourhoods. Obviously, there are price differences between different neighbourhoods in every city. However, what if a scatterplot is used to compare the review scores rating and the price for each accommendation based on the mean values for each neighbourhood. It looks as follows:
+
+![Scatterplot: Price against review scores rating](./images/question2.png "Price against review scores rating"
+
+It is not looking nice but the Pearsons correlation coefficient is already 0.318. Thus, there is a dependency to the neighbourhood. Higher ratings indicates here to stay in a more expensive neighbourhood. However, this cannot be influences by the renter. Furthermore, the correlation is still weak since a lot of people might decide to stay in a specific neighborhood for specific reasons not covered here and others might be completely happy with a cheap neighbourhood.
 
 ## Question 3: Is there a relation between number of reviews and review scores rating?
 
