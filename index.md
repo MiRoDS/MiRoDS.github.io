@@ -12,10 +12,22 @@ Although there is one main question described above, there are a number of addit
 * Question 2: Are there differences in review scores rating and price between different neighbourhoods? This is something you cannot influence if you have a given accommendation for let.
 * Question 3: Is there a relation between number of reviews and review scores rating?
 * Question 4: Is there a relation between amenities and review scores rating? Which amenties seems to be the most important ones?
-* Final questions 5: Is there a way to predict the review score ratings based on the other information from the dataset?
+* Final questions 5: Is there a way to predict the review scores rating based on the other information from the dataset?
 
-## Data preparation
+Note: Although I focused on the price per night and the overall review scores rating. There are some specific columns in the dataset like weekly price or the rating for cleaniness, but these are not taken into account here. 
+
+## Data understanding and preparation
 Before starting the analysis, it was necassary to prepare the data. For example, the price column contained $-signs and commas as decimal seperators. The amentites of the different accommendations have been encoded as combined strings in one column of the dataset. Furthermore, there are several categorial varibales e.g. for neighbourhood and type of the property. These columns have been replaced by binary dummy columns in order to allow the creation of linear regression models.
+
+The following histograms show the distributions of the price and the review scores rating. It is noticeable that the distribution of the rating is strongly left-skewed and that nearly a fifth of the accommendation has the highest possible rating.
+
+![Histogram: Distribution of the review scores rating](./images/review_scores_rating_hist.png "Distribution of the review scores rating")
+
+![Histogram: Distribution of the price (per night)](./images/price_hist.png "Distribution of the price (per night)")
+
+Furthermore, the distribution of amenties over all accommendations has been caluculated. It is shown in the following plot.
+
+![Histogram: Distribution of amenities](./images/amenities_hist.png "Distribution of amenities")
 
 ## Question 1: Is there a relation between price and review scores rating?
 The price might be an important factor for the the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommendation with a high price have higher demansds and would not tolerate any shortcomings which would result in a lower rating. However, the following scatter plot shows the relation between the two measures:
@@ -30,7 +42,7 @@ Although, it shows some relation, the Pearsons correlation coeficient is just at
 
 ## Question 4: Is there a relation between amenities and review scores rating?
 
-## Final questions 5: Is there a way to predict the review score ratings based on the other information from the dataset?
+## Final questions 5: Is there a way to predict the review scores rating based on the other information from the dataset?
 
 ## Conclusion
 The results shows that there seems to be no way to predict the reviews scores rating from the information of an accommendation in the dataset. This might be disappointing to owners of unused space in the big attractive cities on this plant. However, one possible explanation might also be a bit soothing:
