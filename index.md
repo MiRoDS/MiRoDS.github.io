@@ -17,9 +17,9 @@ Although there is one main question described above, there are a number of addit
 ## Data preparation
 Before starting the analysis, it was necassary to prepare the data. For example, the price column contained $-signs and commas as decimal seperators. The amentites of the different accommendations have been encoded as combined strings in one column of the dataset. Furthermore, there are several categorial varibales e.g. for neighbourhood and type of the property. These columns have been replaced by binary dummy columns in order to allow the creation of linear regression models.
 
-## Question 1: Is there a relation between price an review score rating?
+## Question 1: Is there a relation between price an review scores rating?
 The price might be an important factor for the the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommendation with a high price have higher demansds and would not tolerate any shortcomings which would result in a lower rating. However, the following scatter plot shows the relation between the two measures:
-![Scatterplot](./question1/png "Scatterplot")
+![Scatterplot: Relation between price an review scores rating](./question1.png "Relation between price an review scores rating")
 Although, it shows some relation, the Pearsons correlation coeficient is just at 0.106, indicating only a slight correlation. Interestingly, the variance in review scores rating is higher in lower price regions. In high price regions, there seem to be no real bad ratings. Nevertheless, the number of data points is relatively low here. Thus, as an answer, yes, there is a slight correlation.
 
 ## Question 2: Are there differences in review scores rating and price between different neighbourhoods?
