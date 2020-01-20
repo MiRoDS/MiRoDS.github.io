@@ -8,7 +8,7 @@ Is there a way to predict the actual scores rating from the features of an accom
 ## Business questions
 Although there is one main question described above, there are a number of additional questions which help to answer how to increase your score rating.
 
-* Question 1: Is there a relation between price an review score rating, e.g. for low and high prices?
+* Question 1: Is there a relation between price and review scores rating, e.g. for low and high prices?
 * Question 2: Are there differences in review scores rating and price between different neighbourhoods? This is something you cannot influence if you have a given accommendation for let.
 * Question 3: Is there a relation between number of reviews and review scores rating?
 * Question 4: Is there a relation between amenities and review scores rating? Which amenties seems to be the most important ones?
