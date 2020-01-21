@@ -54,19 +54,17 @@ The scatterplot shows an interesting pattern, however, the correlation coefficie
 To answer this question, a linear regression model has been trained based on the presence or absence of 42 different amenities in the dataset to predict the review scores rating. The result is a bit disappointing. The R^2 fit value is just at 0.0277.
 
 ## Final questions 5: Is there a way to predict the review scores rating based on amenities and price?
-Since question 1 and 2 showed slight correlation of price with review scores rating, the price has been added to build the model. However, the R^2 has not been changed much with a value of 0.0285. The fully uncover the possibilities, an optimization has been used to try different linear models with a different number of features.
-
-These are the results.
+Since question 1 and 2 showed slight correlation of price with review scores rating, the price has been added to build the model. However, the R^2 has not been changed much with a value of 0.0285. The fully uncover the possibilities, the process has been performed for a lot of subsets of the selected input data containing a different number of features. The following plot shows the R^2 values based on the training set and an independent test set.
 
 ![Number of features vs R2](./images/question5-1.png "Number of features vs R2")
 
-The plot shows a very weak R^2 values already on the training data. For test data the model is useless.
+The plot shows a very weak R^2 values already on the training data. For test data the model seems to be completely useless. Thus, it seems to be not possible to predict the review scores rating based on amenities and price.
 
 In order to show that the approach itself works fine, price and review scores rating have been exchanged by each other in a final experiment. This means that review scores rating and amenities have been used to predict the price. The same type of linear regression has been performed as before. See the results here:
 
 ![Number of features vs R2](./images/question5-2.png "Number of features vs R2")
 
-Now it looks completely different. The R^2 values are much better and the model also work comparably well on the test set.
+Now it looks completely different. The R^2 values are much better and the model also works comparably well on the test set.
 
 ## Conclusion
 The results shows that there seems to be no way to predict the reviews scores rating from the information of an accommendation in the dataset. This might be disappointing to owners of unused space in the big attractive cities on this plant. However, one possible explanation might also be a bit soothing:
