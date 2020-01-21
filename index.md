@@ -8,9 +8,9 @@ Is there a way to predict the actual scores rating from the features of an accom
 ## Business questions
 Although there is one main question described above, there are a number of additional questions which help to answer how to increase your score rating.
 
-* Question 1: Is there a correlation between price and review scores rating?
+* Question 1: Is there correlation between price and review scores rating?
 * Question 2: Are there differences in review scores rating and price between different neighbourhoods? This is something you cannot influence if you have a given accommodation for let.
-* Question 3: Is there a correlation between number of reviews and review scores rating?
+* Question 3: Is there correlation between number of reviews and review scores rating?
 * Question 4: Is there a relation between amenities and review scores rating? Which amenities seems to be the most important ones?
 * Final questions 5: Is there a way to predict the review scores rating based on amenities and price?
 
@@ -29,7 +29,7 @@ Furthermore, the distribution of amenities over all accommodations has been calc
 
 ![Histogram: Distribution of amenities](./images/amenities_hist.png "Distribution of amenities")
 
-## Question 1: Is there a correlation between price and review scores rating?
+## Question 1: Is there correlation between price and review scores rating?
 The price might be an important factor for the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommodation with a high price have higher demands and would not tolerate any shortcomings which would result in a lower rating? However, the following scatter plot shows the relation between the two measures:
 
 ![Scatterplot: Relation between price and review scores rating](./images/question1.png "Relation between price and review scores rating")
@@ -43,7 +43,7 @@ It has been checked whether there are differences in review scores ratings and p
 
 It is not looking nice but the Pearsons correlation coefficient is already 0.318. Thus, there is a dependency to the neighbourhood. Higher ratings indicate here to stay in a more expensive neighbourhood. However, this cannot be influences by the renter. Thus, it is removed from further analysis. The same holds for property type and room type. Thus, these columns are no longer considered.
 
-## Question 3: Is there a correlation between number of reviews and review scores rating?
+## Question 3: Is there correlation between number of reviews and review scores rating?
 Before making predictions, it is checked whether the number of reviews show some correlation with the review scores rating, especially due to the very strongly skewed distribution of review scores rating.
 
 ![Scatterplot: Number of reviews against review scores rating](./images/question3.png "Number of reviews against review scores rating")
