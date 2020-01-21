@@ -1,5 +1,7 @@
 # How to make MOST of your let accommodations - Are there easy ways to INCREASE your review scores rating?
 
+![Blog Logo](./images/process.png "Blog Logo")
+
 ## Introduction
 AirBNB is obviously a great way to make some extra money if you own some unused space in a popular city. However, how can you optimize this since you compete with many other accommodations? What would people select for a stay if there are different options fulfilling their requirements in terms of location, amenities, size, and similar features? Yes, the price is probably an important thing. But this definitely depends also on the people's overall budget they want to spend. In the end, the review scores rating by other visitors might play an important role.
 
