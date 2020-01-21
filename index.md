@@ -36,21 +36,21 @@ The price might be an important factor for the review scores rating. Maybe a che
 
 ![Scatterplot: Relation between price and review scores rating](./images/question1.png "Relation between price and review scores rating")
 
-Although, it uncovers some trend, the Pearsons correlation coefficient is just at 0.106, indicating only a slight correlation. Interestingly, the variance in review scores rating is higher in lower price regions. In high price regions, there seem to be no real bad ratings. Nevertheless, the number of data points is relatively low here. Thus, as an answer, yes, there is a slight correlation.
+Although, it uncovers some trend, the Pearsons correlation coefficient is just at 0.1057, indicating only a slight correlation. Interestingly, the variance in review scores rating is higher in lower price regions. In high price regions, there seem to be no real bad ratings. Nevertheless, the number of data points is relatively low here. Thus, as an answer, yes, there is a slight correlation.
 
 ## Question 2: Are there differences in review scores rating and price between different neighbourhoods?
 It has been checked whether there are differences in review scores ratings and price between different neighbourhoods. Obviously, there are price differences between different neighbourhoods in every city. However, what if a scatterplot is used to compare the review scores rating and the price for each accommodation based on the mean values for each neighbourhood? This looks as follows:
 
 ![Scatterplot: Price against review scores rating](./images/question2.png "Price against review scores rating")
 
-It is not looking nice but the Pearsons correlation coefficient is already 0.318. Thus, there is a dependency to the neighbourhood. Higher ratings indicate here to stay in a more expensive neighbourhood. However, this cannot be influences by the renter. Thus, it is removed from further analysis. The same holds for property type and room type. Thus, these columns are no longer considered.
+It is not looking nice but the Pearsons correlation coefficient is already 0.3177. Thus, there is a dependency to the neighbourhood. Higher ratings indicate here to stay in a more expensive neighbourhood. However, this cannot be influences by the renter. Thus, it is removed from further analysis. The same holds for property type and room type. Thus, these columns are no longer considered.
 
 ## Question 3: Is there correlation between number of reviews and review scores rating?
 Before making predictions, it is checked whether the number of reviews show some correlation with the review scores rating, especially due to the very strongly skewed distribution of review scores rating.
 
 ![Scatterplot: Number of reviews against review scores rating](./images/question3.png "Number of reviews against review scores rating")
 
-The scatterplot shows an interesting pattern. However, the correlation coefficient of 0.023 does not indicate a relation between the two measures. Obviously, the individual review score rating means of accommendations with a lower number of reviews have a higher variance in comparison to accommendations with many reviews. Thus, the number of reviews is not taken into account for the further analysis.
+The scatterplot shows an interesting pattern. However, the correlation coefficient of 0.0228 does not indicate a relation between the two measures. Obviously, the individual review score rating means of accommendations with a lower number of reviews have a higher variance in comparison to accommendations with many reviews. Thus, the number of reviews is not taken into account for the further analysis.
 
 ## Question 4: Is there a relation between amenities and review scores rating?
 To answer this question, a linear regression model has been trained based on the presence or absence of 42 different amenities in the dataset to predict the review scores rating. The result is a bit disappointing. The R^2 fit value is just at 0.0277.
