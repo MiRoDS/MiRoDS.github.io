@@ -30,14 +30,14 @@ Furthermore, the distribution of amenities over all accommodations has been calc
 ![Histogram: Distribution of amenities](./images/amenities_hist.png "Distribution of amenities")
 
 ## Question 1: Is there a correlation between price and review scores rating?
-The price might be an important factor for the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommodation with a high price have higher demands and would not tolerate any shortcomings which would result in a lower rating. However, the following scatter plot shows the relation between the two measures:
+The price might be an important factor for the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommodation with a high price have higher demands and would not tolerate any shortcomings which would result in a lower rating? However, the following scatter plot shows the relation between the two measures:
 
 ![Scatterplot: Relation between price and review scores rating](./images/question1.png "Relation between price and review scores rating")
 
 Although, it uncovers some trend, the Pearsons correlation coefficient is just at 0.106, indicating only a slight correlation. Interestingly, the variance in review scores rating is higher in lower price regions. In high price regions, there seem to be no real bad ratings. Nevertheless, the number of data points is relatively low here. Thus, as an answer, yes, there is a slight correlation.
 
 ## Question 2: Are there differences in review scores rating and price between different neighbourhoods?
-It has been checked whether there are differences in review scores ratings and price between different neighbourhoods. Obviously, there are price differences between different neighbourhoods in every city. However, what if a scatterplot is used to compare the review scores rating and the price for each accommodation based on the mean values for each neighbourhood. It looks as follows:
+It has been checked whether there are differences in review scores ratings and price between different neighbourhoods. Obviously, there are price differences between different neighbourhoods in every city. However, what if a scatterplot is used to compare the review scores rating and the price for each accommodation based on the mean values for each neighbourhood? This looks as follows:
 
 ![Scatterplot: Price against review scores rating](./images/question2.png "Price against review scores rating")
 
