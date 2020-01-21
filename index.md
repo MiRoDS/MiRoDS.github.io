@@ -8,13 +8,13 @@ Is there a way to predict the actual scores rating from the features of an accom
 ## Business questions
 Although there is one main question described above, there are a number of additional questions which help to answer how to increase your score rating.
 
-* Question 1: Is there a correlation between price and review scores rating, e.g. for low and high prices?
+* Question 1: Is there a correlation between price and review scores rating?
 * Question 2: Are there differences in review scores rating and price between different neighbourhoods? This is something you cannot influence if you have a given accommodation for let.
 * Question 3: Is there a correlation between number of reviews and review scores rating?
 * Question 4: Is there a relation between amenities and review scores rating? Which amenities seems to be the most important ones?
 * Final questions 5: Is there a way to predict the review scores rating based on amenities and price?
 
-Note: Although I focused on the price per night and the overall review scores rating. There are some specific columns in the dataset like weekly price or the rating for cleanliness, but these are not considered here. 
+Note: I focused on the price per night and the overall review scores rating. There are some specific columns in the dataset like weekly price or the rating for cleanliness, but these are not considered here. 
 
 ## Data understanding and preparation
 Before starting the analysis, it was necessary to prepare the data. For example, the price column contained $-signs and commas as decimal separators. The amenities of the different accommodations have been encoded as combined strings in one column of the dataset. Furthermore, there are several categorial variables e.g. for neighbourhood and type of the property. These columns have been replaced by binary dummy columns in order to allow the creation of linear regression models. Finally, rows with missing values in the review scores rating column have been removed which reduces the number of rows to 2772.
