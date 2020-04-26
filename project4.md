@@ -25,7 +25,22 @@ At first, several data preparation steps were necessary to prepare the both data
 
 The timesseries set contains 264 rows for different countries/regions. However, in some cases it is differentiated between different provinces/states. Beside the geographical position (longitute and latitude) there are columns for every day starting from 1/22/2020 showing the number of confirmed cases.
 
-In comparison, the country information set makes differentiations between different regions within countries. It is not fitting to the timeseries list but in the overwhelming number of cases, there is just one row per nation. It contains 249 rows and 60 columns with different information on the situations in the regions/countries. Some of them are also related to the number of cases in specific weeks subdivided in new cases, recovered cases, and cases of death. They are not considered here, since more detailled information on the progress of the epedemics are taken from the timeseries. However, general information on the amount of citizens per square meter, median age of population, percentage of urban population, average temperature, and humidity are taken into account to check whether these characteristics have an effect. Additionally, the dataset contains information on which dates measures have been taken to contain the diseases. These are quarantine, school closure policy, closing of public places like bars and restaurants, non-gathering restrictions, and non-essential house leavings. However, for the most regions/countries this information does not exists (or the measures were not taken).
+In comparison, the country information set makes differentiations between different regions within countries. It is not fitting to the timeseries list but in the overwhelming number of cases, there is just one row per nation. It contains 249 rows and 60 columns with different information on the situations in the regions/countries. Some of them are also related to the number of cases in specific weeks subdivided in new cases, recovered cases, and cases of death. They are not considered here, since more detailled information on the progress of the epedemics are taken from the timeseries. However, general information on the
+
+*amount of citizens per square meter,
+*median age of population,
+*percentage of urban population,
+*average temperature, and 
+*humidity
+
+are taken into account to check whether these characteristics have an effect. Additionally, the dataset contains information on which dates measures have been taken to contain the diseases. These are 
+*quarantine,
+*school closure policy,
+*closing of public places like bars and restaurants,
+*non-gathering restrictions, and
+*non-essential house leavings.
+
+However, for the most regions/countries this information does not exists (or the measures were not taken).
 
 ## Data preparation
 To make it possible to prepare the datasets, the different provinces/states of the same country/region in the timeseries have been combined by summing up the cases per day. This was necessary in 7 cases, e.g. for China information from 33 rows has been gathered so that in the end, one row represents one nation (185 overall). The following plot visualized the series of the 10 countries with the highest number of infections.
