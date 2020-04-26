@@ -20,24 +20,17 @@ There are a number of questions for the analysis should give answers or at least
 * Question 4: Is it possible to come up with a measured value to compare the effectiveness of measures against the disease?
 * Question 5: What are the effects of the different measures to contain the disease?
 
-## Data understanding and preparation
+## Data understanding
 At first, several data preparation steps were necessary to prepare the both datasets for timeseries and country information before combining them to one set.
 
-The timesseries set contains 264 rows for different countries/regions. However, in some cases it is differentated between different provinces/states. Beside the geographical position (longitute and latitude) there are columns for every day starting from 1/22/2020 showing the number of confirmed cases.
-In comparison, the country information set makes differentiations between different regions within countries. It is not fitting to the timesries list but in the overwhelming number of cases, there is just one row per nation. It contains 249 rows and 60 columns with different information on the situations in the countries/regions.
+The timesseries set contains 264 rows for different countries/regions. However, in some cases it is differentiated between different provinces/states. Beside the geographical position (longitute and latitude) there are columns for every day starting from 1/22/2020 showing the number of confirmed cases.
 
+In comparison, the country information set makes differentiations between different regions within countries. It is not fitting to the timeseries list but in the overwhelming number of cases, there is just one row per nation. It contains 249 rows and 60 columns with different information on the situations in the regions/countries. Some of them are also related to the number of cases in specific weeks subdivided in new cases, recovered cases, and cases of death. They are not considered here, since more detailled information on the progress of the epedemics are taken from the timeseries. However, general information on the amount of citizens per square meter, median age of population, percentage of urban population, average temperature, and humidity are taken into account to check whether these characteristics have an effect. Additionally, the dataset contains information on which dates measures have been taken to contain the diseases. These are quarantine, school closure policy, closing of public places like bars and restaurants, non-gathering restrictions, and non-essential house leavings. However, for the most regions/countries this information does not exists (or the measures were not taken).
 
-Before starting the analysis, it was necessary to prepare the data. For example, the price column contained $-signs and commas as decimal separators. The amenities of the different accommodations have been encoded as combined strings in one column of the dataset. Furthermore, there are several categorial variables e.g. for neighbourhood and type of the property. These columns have been replaced by binary dummy columns in order to allow the creation of linear regression models. Finally, rows with missing values in the review scores rating column have been removed which reduces the number of rows to 2772.
+## Data preparation
+To make it possible to prepare the datasets, the different provinces/states of the same country/region in the timeseries have been combined by summing up the cases per day. This was necessary in 7 cases, e.g. for China information from 33 rows has been gathered so that in the end, one row represents one nation (185 overall). The following plot visualized the series of the 10 countries with the highest number of infections.
 
-The following histograms show the distributions of the price and the review scores rating. It is noticeable that the distribution of the rating is strongly left-skewed and that nearly a fifth of the accommodation has the highest possible rating.
-
-![Histogram: Distribution of the price (per night)](./images/price_hist.png "Distribution of the price (per night)")
-
-![Histogram: Distribution of the review scores rating](./images/review_scores_rating_hist.png "Distribution of the review scores rating")
-
-Furthermore, the distribution of amenities over all accommodations has been calculated. It is shown in the following plot.
-
-![Histogram: Distribution of amenities](./images/amenities_hist.png "Distribution of amenities")
+![Line plot: Timeseries of confirmed cases of the 10 countries with highest number of infections](./images/timeseries.png "Timeseries of confirmed cases of the 10 countries with highest number of infections")
 
 ## Question 1: Is there correlation between price and review scores rating?
 The price might be an important factor for the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommodation with a high price have higher demands and would not tolerate any shortcomings which would result in a lower rating? However, the following scatter plot shows the relation between the two measures:
