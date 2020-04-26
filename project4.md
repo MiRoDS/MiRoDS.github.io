@@ -44,7 +44,7 @@ However, for the most regions/countries this information does not exists (or the
 
 ## Data understanding and preparation
 ### Timeseries dataset
-To make it possible to prepare the datasets, the different provinces/states of the same country/region in the timeseries have been combined by summing up the cases per day. This was necessary in 7 cases, e.g. for China information from 33 rows has been gathered so that in the end, one row represents one nation (185 overall). The following plot visualized the series of the 10 countries with the highest number of infections.
+To make it possible to prepare the datasets, the different provinces/states of the same country/region in the timeseries have been combined by summing up the cases per day. This was necessary in 7 cases, e.g. for China information from 33 rows has been gathered so that in the end, one row represents one nation (185 overall). The column Country/Region has been renamed to 'country'. The provinces/states column is no longer taken into account. The following plot visualized the series of the 10 countries with the highest number of infections.
 
 ![Line plot: Timeseries of confirmed cases of the 10 countries with highest number of infections](./images/capstone_timeseries.png "Timeseries of confirmed cases of the 10 countries with highest number of infections")
 
@@ -57,6 +57,9 @@ The plot above show that the growth in the shown countries is clearly exponentia
 ![Line plot: Logarithmized Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases and filtered](./images/capstone_timeseries_normalized_filtered_log.png "Logarithmized Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases and filtered")
 
 ### Country information dataset
+As for the timeseries dataset, it was necessary to remove some rows. Although, for some countries differentiations are made for several regions, e.g. all 50 states for the US, there is always one row for the country in general. Thus, only this general row has remained. However, due to this step some information is not used but it is necessary that a correpsoing timeseries exist to each entry in the other dataset. Furthermore, it was necessary to convert some columns into numbers since they have been interpreted first as strings due to the used comma-delimiters in the original data.
+
+After this step it is possible to merge the two datasets by the column 'country'.
 
 ## Question 1: Is there correlation between price and review scores rating?
 The price might be an important factor for the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommodation with a high price have higher demands and would not tolerate any shortcomings which would result in a lower rating? However, the following scatter plot shows the relation between the two measures:
