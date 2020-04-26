@@ -20,7 +20,7 @@ There are a number of questions for the analysis should give answers or at least
 * Question 4: Is it possible to come up with a measured value to compare the effectiveness of measures against the disease?
 * Question 5: What are the effects of the different measures to contain the disease?
 
-## Data understanding
+## Data overview
 At first, several data preparation steps were necessary to prepare the both datasets for timeseries and country information before combining them to one set.
 
 The timesseries set contains 264 rows for different countries/regions. However, in some cases it is differentiated between different provinces/states. Beside the geographical position (longitute and latitude) there are columns for every day starting from 1/22/2020 showing the number of confirmed cases.
@@ -42,7 +42,8 @@ and some others are taken into account to check whether these characteristics ha
 
 However, for the most regions/countries this information does not exists (or the measures were not taken).
 
-## Data preparation
+## Data understanding and preparation
+### Timeseries dataset
 To make it possible to prepare the datasets, the different provinces/states of the same country/region in the timeseries have been combined by summing up the cases per day. This was necessary in 7 cases, e.g. for China information from 33 rows has been gathered so that in the end, one row represents one nation (185 overall). The following plot visualized the series of the 10 countries with the highest number of infections.
 
 ![Line plot: Timeseries of confirmed cases of the 10 countries with highest number of infections](./images/capstone_timeseries.png "Timeseries of confirmed cases of the 10 countries with highest number of infections")
@@ -50,6 +51,12 @@ To make it possible to prepare the datasets, the different provinces/states of t
 Since the start date of the outbreaks in the different countries were very different, the data has been normalize to a "day 1" which is the day when a specific number of cases has been detected in each individual country. The ideas is that for a lower number of cases, the situation is under control and that the uncontrolled exponential growth has not started yet. The plot below visualized the overlaying curves after normalizing to a "day 1" with at least 100 detected cases per country.
 
 ![Line plot: Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases](./images/capstone_timeseries_normalized.png "Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases")
+
+The plot above show that the growth in the shown countries is clearly exponentially at the beginning and tends then to a more linear phase with a constant and in the end sometimes a decreasing number of new cases. To illustrate this in a better way, for the folloing plot a logarithmic scale has been used for the y-axis. Furthermore, the timeseries have been applied to a Savitzky-Golay filter before which is a robust noise filter using polynomial regression which causes no bias in exponential growth phases.
+
+![Line plot: Logarithmized Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases and filtered](./images/capstone_timeseries_normalized_filtered_log.png "Logarithmized Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases and filtered")
+
+### Country information dataset
 
 ## Question 1: Is there correlation between price and review scores rating?
 The price might be an important factor for the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommodation with a high price have higher demands and would not tolerate any shortcomings which would result in a lower rating? However, the following scatter plot shows the relation between the two measures:
