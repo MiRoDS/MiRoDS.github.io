@@ -30,7 +30,7 @@ In comparison, the country information set makes differentiations between differ
 ## Data preparation
 To make it possible to prepare the datasets, the different provinces/states of the same country/region in the timeseries have been combined by summing up the cases per day. This was necessary in 7 cases, e.g. for China information from 33 rows has been gathered so that in the end, one row represents one nation (185 overall). The following plot visualized the series of the 10 countries with the highest number of infections.
 
-![Line plot: Timeseries of confirmed cases of the 10 countries with highest number of infections](./images/timeseries.png "Timeseries of confirmed cases of the 10 countries with highest number of infections")
+![Line plot: Timeseries of confirmed cases of the 10 countries with highest number of infections](./images/capstone_timeseries.png "Timeseries of confirmed cases of the 10 countries with highest number of infections")
 
 ## Question 1: Is there correlation between price and review scores rating?
 The price might be an important factor for the review scores rating. Maybe a cheap price indicates a higher probability that the stay is in the end not as pleasant as expected? Or maybe people renting an accommodation with a high price have higher demands and would not tolerate any shortcomings which would result in a lower rating? However, the following scatter plot shows the relation between the two measures:
