@@ -3,7 +3,7 @@
 ![Blog Logo](./images/process.png "Blog Logo")
 
 ## Introduction
-In this project, data from the ongoing "Corona" pandemic is analyzed. The SARS-CoV-2 virus has spread around the world in a relatively short time after its first apperance in Wuhan (China) and the caused disease COVID-19 (=coronavirus disease 2019) stresses the healthcare systems in many countries. Here, the growth over the time after start of the outbreak in the different countries is visualized and measures are introduced to compare the data. Furthermore, it is checked whether there are specifc driving forces for the exponential growths rates and effective measuresare the against.
+In this project, data from the ongoing "Corona" pandemic is analyzed. The SARS-CoV-2 virus has spread around the world in a relatively short time after its first apperance in Wuhan (China) and the caused disease COVID-19 (=coronavirus disease 2019) stresses the healthcare systems in many countries. Here, the growth over the time after start of the outbreak in the different countries is visualized and measures are introduced to compare the intensities of the outbreaks. Furthermore, it is checked whether there are specific driving forces for the exponential growths rates and effective measures against.
 
 Therefor, two datasets are analyzed that are later on combined to one:
 
@@ -12,17 +12,21 @@ One dataset has been taken from the CSSE at Johns Hopkins University: It shows t
 Another dataset has been downloaded from Kaggle. It gives an overview on different Corona-related information for the affected countries and is available [here](https://www.kaggle.com/koryto/countryinfo#covid19countryinfo.csv) (also stored in [DataScience_Project4 GitHub](https://github.com/MiRoDS/DataScience_Project4)).
 
 ## Questions
-Although there is one main question described above, there are a number of additional questions which help to answer how to increase your score rating.
+There are a number of questions for the analysis should give answers or at least some hints.
 
-* Question 1: Is there correlation between price and review scores rating?
-* Question 2: Are there differences in review scores rating and price between different neighbourhoods? This is something you cannot influence if you have a given accommodation for let.
-* Question 3: Is there correlation between number of reviews and review scores rating?
-* Question 4: Is there a relation between amenities and review scores rating? Which amenities seems to be the most important ones?
-* Final questions 5: Is there a way to predict the review scores rating based on amenities and price?
-
-Note: I focused on the price per night and the overall review scores rating. There are some specific columns in the dataset like weekly price or the rating for cleanliness, but these are not considered here. 
+* Question 1: How can the data be prepared so that outbreaks in different countries can be visualized?
+* Question 2: What could be a measure to compare the intensities of the outbreaks?
+* Question 3: What are the effects of the initial situation in the different countries on the outbreak intensity?
+* Question 4: Is it possible to come up with a measured value to compare the effectiveness of measures against the disease?
+* Question 5: What are the effects of the different measures to contain the disease?
 
 ## Data understanding and preparation
+At first, several data preparation steps were necessary to prepare the both datasets for timeseries and country information before combining them to one set.
+
+The timesseries set contains 264 rows for different countries/regions. However, in some cases it is differentated between different provinces/states. Beside the geographical position (longitute and latitude) there are columns for every day starting from 1/22/2020 showing the number of confirmed cases.
+In comparison, the country information set makes differentiations between different regions within countries. It is not fitting to the timesries list but in the overwhelming number of cases, there is just one row per nation. It contains 249 rows and 60 columns with different information on the situations in the countries/regions.
+
+
 Before starting the analysis, it was necessary to prepare the data. For example, the price column contained $-signs and commas as decimal separators. The amenities of the different accommodations have been encoded as combined strings in one column of the dataset. Furthermore, there are several categorial variables e.g. for neighbourhood and type of the property. These columns have been replaced by binary dummy columns in order to allow the creation of linear regression models. Finally, rows with missing values in the review scores rating column have been removed which reduces the number of rows to 2772.
 
 The following histograms show the distributions of the price and the review scores rating. It is noticeable that the distribution of the rating is strongly left-skewed and that nearly a fifth of the accommodation has the highest possible rating.
