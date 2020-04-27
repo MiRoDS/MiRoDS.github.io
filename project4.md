@@ -78,7 +78,10 @@ Most of the derivatives seem to show cyclic fluctuations on a weekly base. A rea
 
 ![Line plot: Filtered 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections](./images/capstone_timeseries_derivative_filtered.png "Filtered 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections")
 
-However, what is now the point in time at which the exponential growth slows down? This must be the point at which the increase of new cases per day is highest: Mathematically, this is the second derivative. 
+However, what is now the point in time at which the exponential growth slows down? This must be the point at which the increase of new cases per day is highest: Mathematically, this is the maximum of the second derivative also know as the inflection point.
+
+### Spreading rate and measure effect time
+Two characteristics have been calculated from the values of first and second derivatives.
 
 ## Conclusion
 If you want to see some more details, see my Jupyter-Notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project4).
