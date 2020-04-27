@@ -15,7 +15,7 @@ Another dataset has been downloaded from Kaggle. It gives an overview on differe
 There are a number of questions for which the analysis should give answers or at least some hints.
 
 * Question 1: How can the data be prepared so that outbreaks in different countries can be visualized?
-* Question 2: What could be a measure to compare the intensities of the outbreaks?
+* Question 2: What could be a measure to compare the spreading rates of the outbreaks?
 * Question 3: What are the effects of the initial situation in the different countries on the outbreak intensity?
 * Question 4: Is it possible to come up with a measured value to compare the effectiveness of measures against the disease?
 * Question 5: What are the effects of the different measures to contain the disease?
@@ -46,15 +46,15 @@ However, for the most regions/countries this information does not exists (or the
 ### Timeseries dataset
 To make it possible to prepare the datasets, the different provinces/states of the same country/region in the timeseries have been combined by summing up the cases per day. This was necessary in 7 cases, e.g. for China information from 33 rows has been gathered so that in the end, one row represents one nation (185 overall). The column Country/Region has been renamed to 'country'. After the step, the provinces/states column is no longer used. The following plot visualized the series of the 10 countries with the highest number of infections.
 
-![Line plot: Timeseries of confirmed cases of the 10 countries with highest number of infections](./images/capstone_timeseries.png "Timeseries of confirmed cases of the 10 countries with highest number of infections")
+![Line plot: Timeseries of confirmed cases in the 10 countries with highest number of infections](./images/capstone_timeseries.png "Timeseries of confirmed cases in the 10 countries with highest number of infections")
 
 Since the start date of the outbreaks in the different countries were very different, the data has been normalize to a "day 1" which is the day when a specific number of cases has been detected in each individual country. The idea is that for a lower number of cases, the situation is under control and that the uncontrolled exponential growth has not started yet. The plot below visualizes the overlaying curves after normalizing to a "day 1" with at least 100 detected cases per country (**This is essentially an answer to question 1.**).
 
-![Line plot: Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases](./images/capstone_timeseries_normalized.png "Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases")
+![Line plot: Timeseries of confirmed cases in the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases](./images/capstone_timeseries_normalized.png "Timeseries of confirmed cases in the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases")
 
 The plot above show that the growth in the shown countries is clearly exponentially at the beginning and tends then to a more linear phase with a constant and in the end sometimes decreasing number of new cases. An exception is China. In China there is a second strong increase. After that no more new cases have been reported. To illustrate the exponential growth in a better way, a logarithmic scale has been used for the y-axis in the folloing plot. Furthermore, the timeseries have been applied to a Savitzky-Golay filter before which is a robust noise filter using polynomial regression which causes no bias in exponential growth phases.
 
-![Line plot: Logarithmized Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases and filtered](./images/capstone_timeseries_normalized_filtered_log.png "Logarithmized Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases and filtered")
+![Line plot: Logarithmized Timeseries of confirmed cases in the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases and filtered](./images/capstone_timeseries_normalized_filtered_log.png "Logarithmized Timeseries of confirmed cases in the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases and filtered")
 
 ### Country information dataset
 As for the timeseries dataset, it was necessary to remove some rows. Although, for some countries differentiations are made for several regions, e.g. all 50 states for the US, there is always one row for the country in general. Thus, only this general row has remained. However, due to this step some information is not used but it is necessary that a corresponding timeseries exist for each entry in the other dataset. Furthermore, it was necessary to convert some columns into number columns since they have been interpreted first as strings due to the used comma-delimiters in the original data.
@@ -65,7 +65,14 @@ However, another preparation step has been made. The dates on which measures hav
 
 ## Modelling and Evaluation
 ### A simple model for the spread of a viruis epedemic
-Before the next steps are made, some thought on the spread of a virus. Let assume that there is at first an unbraked spreading. The spreading rate depends on a general conditions, e.g. how often people converge since the main transmission route for SARS-CoV-2 is droplet contact. The unbraked spreading fits good to the visualizations above since the curves rise according to an exponential increase. Note: This is the assumption and certainly a bit simplified. At some point, the growth rate is flatten. This is due to governmental measures and attitude changes of the people, e.g. keeping distance of others, but it would also flatten without measures since at some point a saturation effect would occur as more people become infected.
+Before the next steps are made, some thought on the spread of a virus. Let assume that there is at first an unbraked spreading. The spreading rate depends on a general conditions, e.g. how often people converge since the main transmission route for SARS-CoV-2 is droplet contact. The unbraked spreading fits good to the visualizations above since most of the curves rise according to an exponential increase. Note: This is the assumption and certainly a bit simplified. At some point, the growth rate is flatten. This is due to governmental measures and attitude changes of the people, e.g. keeping distance of others, but it would also flatten without measures since at some point a saturation effect would occur as more people become infected.
+
+Thus, to compare the spreading rates between the different countries (**Question 2**), the point in time must be found at which the exponential growth starts to slow down and other effects superimpose. However, how can this point be found?
+
+### Calculation of the derivatives
+The first step is the calculation of the numbers of new cases per day which are, mathematically spoken, the derivatives of the timeseries. A fucntion for this has been implemented. The following plot shows an visualization (again for the 10 countries with the most known infections.
+
+![Line plot: 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections](./images/capstone_timeseries_derivative.png "1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections")
 
 ## Conclusion
 If you want to see some more details, see my Jupyter-Notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project4).
