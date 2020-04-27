@@ -52,16 +52,20 @@ Since the start date of the outbreaks in the different countries were very diffe
 
 ![Line plot: Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases](./images/capstone_timeseries_normalized.png "Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases")
 
-The plot above show that the growth in the shown countries is clearly exponentially at the beginning and tends then to a more linear phase with a constant and in the end sometimes decreasing number of new cases. To illustrate this in a better way, for the folloing plot a logarithmic scale has been used for the y-axis. Furthermore, the timeseries have been applied to a Savitzky-Golay filter before which is a robust noise filter using polynomial regression which causes no bias in exponential growth phases.
+The plot above show that the growth in the shown countries is clearly exponentially at the beginning and tends then to a more linear phase with a constant and in the end sometimes decreasing number of new cases. An exception is China. In China there is a second strong increase. After that no more new cases have been reported. To illustrate the exponential growth in a better way, a logarithmic scale has been used for the y-axis in the folloing plot. Furthermore, the timeseries have been applied to a Savitzky-Golay filter before which is a robust noise filter using polynomial regression which causes no bias in exponential growth phases.
 
 ![Line plot: Logarithmized Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases and filtered](./images/capstone_timeseries_normalized_filtered_log.png "Logarithmized Timeseries of confirmed cases of the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases and filtered")
 
 ### Country information dataset
 As for the timeseries dataset, it was necessary to remove some rows. Although, for some countries differentiations are made for several regions, e.g. all 50 states for the US, there is always one row for the country in general. Thus, only this general row has remained. However, due to this step some information is not used but it is necessary that a corresponding timeseries exist for each entry in the other dataset. Furthermore, it was necessary to convert some columns into number columns since they have been interpreted first as strings due to the used comma-delimiters in the original data.
 
-After this step it is possible to merge the two datasets by the column 'country'.
+After this step it is possible to merge the two datasets by the column 'Country'.
+
+However, another preparation step has been made. The dates on which measures have been taken to contain the diseases have been replaced by the number of days between the outbreak within the country and the start of the measure. Note, that this number can be negative in case that the measures has been taken before the detected outbreak. In case that no measure was taken or the information is not know (nan in both cases) a high number of penality costs has been added so that the columns can be used for later caluculations.
 
 ## Modelling and Evaluation
+### A simple model for the spread of a viruis epedemic
+Before the next steps are made, some thought on the spread of a virus. Let assume that there is at first an unbraked spreading. The spreading rate depends on a general conditions, e.g. how often people converge since the main transmission route for SARS-CoV-2 is droplet contact. The unbraked spreading fits good to the visualizations above since the curves rise according to an exponential increase. Note: This is the assumption and certainly a bit simplified. At some point, the growth rate is flatten. This is due to governmental measures and attitude changes of the people, e.g. keeping distance of others, but it would also flatten without measures since at some point a saturation effect would occur as more people become infected.
 
 ## Conclusion
 If you want to see some more details, see my Jupyter-Notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project4).
