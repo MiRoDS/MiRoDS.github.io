@@ -70,13 +70,15 @@ Before the next steps are made, some thought on the spread of a virus. Let assum
 Thus, to compare the spreading rates between the different countries (**Question 2**), the point in time must be found at which the exponential growth starts to slow down and other effects superimpose. However, how can this point be found?
 
 ### Calculation of the derivatives
-The first step is the calculation of the numbers of new cases per day which are, mathematically spoken, the derivatives of the timeseries. A fucntion for this has been implemented. The following plot shows an visualization (again for the 10 countries with the most known infections.
+The first step is the calculation of the number of new cases per day which is, mathematically spoken, the derivative of a timeseries. A function for this has been implemented. The following plot shows an visualization (again for the 10 countries with the most known infections).
 
 ![Line plot: 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections](./images/capstone_timeseries_derivative.png "1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections")
 
 Most of the derivatives seem to show cyclic fluctuations on a weekly base. A reason might be that new cases on weekend are reported with delay to the health authorities. Thus, a median filter with a width of 7 (for 7 days per week) has been applied to the derivatives. Additionally, the Savitzky-Golay filter has been applied, subsequently, to filter for remaining noise in the data. The following plot shows the result.
 
 ![Line plot: Filtered 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections](./images/capstone_timeseries_derivative_filtered.png "Filtered 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections")
+
+However, what is now the point in time at which the exponential growth slows down? This must be the point at which the increase of new cases per day is highest: Mathematically, this is the second derivative. 
 
 ## Conclusion
 If you want to see some more details, see my Jupyter-Notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project4).
