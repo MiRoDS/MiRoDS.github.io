@@ -78,7 +78,9 @@ Most of the derivatives seem to show cyclic fluctuations on a weekly base. A rea
 
 ![Line plot: Filtered 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections](./images/capstone_timeseries_derivative_filtered.png "Filtered 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections")
 
-However, what is now the point in time at which the exponential growth slows down? This must be the point at which the increase of new cases per day is highest: Mathematically, this is the maximum of the second derivative also know as the inflection point.
+However, what is now the point in time at which the exponential growth slows down? This must be the point at which the increase of new cases per day is highest: Mathematically, this is the maximum of the second derivative also know as the inflection point. It is visualized in the following plot. Note, that the shown curves are the result of a median filter and a Savitzky-Golay filter.
+
+![Line plot: Filtered 2nd derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections](./images/capstone_timeseries_2nd_derivative_filtered.png "Filtered 2nd derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections")
 
 ### Spreading rate and measure effect time
 Based on considerations on the model, two ratios have been calculated from the values of first and second derivatives. The first one is the spreading rate which explains the mean growth per day from the start of the outbreak till the inflection point when the spreading rate starts to decreases. d is the number of days till the inflection point:
