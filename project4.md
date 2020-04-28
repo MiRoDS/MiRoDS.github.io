@@ -104,6 +104,10 @@ The following table shows the rates for the countries with the highest and lowes
 
 ### Prediction of the disease development
 
+#### Regression models
+
+#### Transform the problem into a classification problem
+
 ## Conclusion
 To be discussed:
 * Model makes only sense for the time period from start of the exponential growth phase till the begin of the first decreasing of new cases per day. Additional waves or uncommon development of the disease, e.g. in China, do not fit to the model.
