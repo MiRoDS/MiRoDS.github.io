@@ -74,7 +74,7 @@ The first step is the calculation of the number of new cases per day which is, m
 
 ![Line plot: 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections](./images/capstone_timeseries_derivative.png "1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections")
 
-Most of the derivatives seem to show cyclic fluctuations on a weekly base. A reason might be that new cases on weekend are reported with delay to the health authorities. Thus, a median filter with a width of 7 (for 7 days per week) has been applied to the derivatives. Additionally, the Savitzky-Golay filter has been applied, subsequently, to filter for remaining noise in the data. The following plot shows the result.
+Most of the derivatives seem to show cyclic fluctuations on a weekly base. A reason might be that new cases on weekend are reported with delay to the health authorities. A first analysis of this data showed issues in the subsequent steps. Thus, a median filter with a width of 7 (for 7 days per week) has been applied to the derivatives as a refinement. Additionally, the Savitzky-Golay filter has been applied, subsequently, to filter for remaining noise in the data. The following plot shows the result.
 
 ![Line plot: Filtered 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections](./images/capstone_timeseries_derivative_filtered.png "Filtered 1st derivative of the timeseries of confirmed cases in the 10 countries with highest number of infections")
 
@@ -95,9 +95,10 @@ After the inflection point, the number of new cases per day starts to decrease. 
 
 The following table shows the rates for the countries with the highest and lowest spreading rates:
 
-|Country|Spreading Rate|Measure Effects (days till maximal number of cases)|
-|-------|--------------|---------------------------------------------------|
-|Ho     |Ho            |Ho                                                 |
+|Country|Spreading Rate|Measure Effects                    |
+|       |              |(days till maximal number of cases)|
+|-------|--------------|-----------------------------------|
+|Ho     |Ho            |Ho                                 |
 
 ### Correlation in the data
 
@@ -106,10 +107,11 @@ The following table shows the rates for the countries with the highest and lowes
 ## Conclusion
 To be discussed:
 * Model makes only sense for the time period from start of the exponential growth phase till the begin of the first decreasing of new cases per day. Additional waves or uncommon development of the disease, e.g. in China, do not fit to the model.
-* It would make sense to create artificial data to simulate the growth process
 * Not enough information on measures against the disease
 * Attitude changes of people cannot be measures as well as local saturation effects
 * Many undetected cases: Factor between 3 and 10.
+* Increased test capacity over the time
+* It would make sense to create artificial data to simulate the growth process
 * Unclear whether a person is infected by a known case or an unknown case.
 
 
