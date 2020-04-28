@@ -81,7 +81,8 @@ Most of the derivatives seem to show cyclic fluctuations on a weekly base. A rea
 However, what is now the point in time at which the exponential growth slows down? This must be the point at which the increase of new cases per day is highest: Mathematically, this is the maximum of the second derivative also know as the inflection point.
 
 ### Spreading rate and measure effect time
-Two characteristics have been calculated from the values of first and second derivatives.
+Two characteristics have been calculated from the values of first and second derivatives. The first one is the mean spreading rate which explains the growth per day from the start of the outbreak till the inflection point when the spreading rate decreases:
+$$Spreading Rate=\sqrt[Number of days]{\frac{Number of cases on last day}{Number of cases on first day}}$$
 
 ## Conclusion
 If you want to see some more details, see my Jupyter-Notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project4).
