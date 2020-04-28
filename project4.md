@@ -85,7 +85,7 @@ However, what is now the point in time at which the exponential growth slows dow
 ### Spreading rate and measure effect time
 Based on considerations on the model, two ratios have been calculated from the values of first and second derivatives. The first one is the spreading rate which explains the mean growth per day from the start of the outbreak till the inflection point when the spreading rate starts to decreases. d is the number of days till the inflection point:
 
-<img src="https://render.githubusercontent.com/render/math?math=Spreading Rate=\sqrt[\d]{\frac{CasesAtInflectionPoint}{CasesOnDay11}}">
+<img src="https://render.githubusercontent.com/render/math?math=Spreading Rate=\sqrt[\d]{\frac{CasesAtInflectionPoint}{CasesOnDay1}}">
 
 Another ratio is the number of days between the inflection point (max of second derivative) and the maximum of new cases per day (maximum of first derivative):
 
@@ -93,5 +93,24 @@ Another ratio is the number of days between the inflection point (max of second 
 
 After the inflection point, the number of new cases per day starts to decrease. The idea is that this could be a ratio for the effect of measures, since the smaller the number, the more efficent are the measures.
 
+The following table shows the rates for the countries with the highest and lowest spreading rates:
+
+|Country|Spreading Rate|Measure Effects (days till maximal number of cases)|
+|-------|--------------|---------------------------------------------------|
+|Ho     |Ho            |Ho                                                 |
+
+### Correlation in the data
+
+### Prediction of the disease development
+
 ## Conclusion
+To be discussed:
+* Model makes only sense for the time period from start of the exponential growth phase till the begin of the first decreasing of new cases per day. Additional waves or uncommon development of the disease, e.g. in China, do not fit to the model.
+* It would make sense to create artificial data to simulate the growth process
+* Not enough information on measures against the disease
+* Attitude changes of people cannot be measures as well as local saturation effects
+* Many undetected cases: Factor between 3 and 10.
+* Unclear whether a person is infected by a known case or an unknown case.
+
+
 If you want to see some more details, see my Jupyter-Notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project4).
