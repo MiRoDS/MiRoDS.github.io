@@ -85,7 +85,7 @@ Based on considerations on the model, two ratios have been calculated from the v
 
 <img src="https://render.githubusercontent.com/render/math?math=Spreading Rate=\sqrt[\d]{\frac{CasesAtInflectionPoint}{CasesOnDay11}}">
 
-Another ratio is the number of days between the inflection point and the maximum of new cases per day:
+Another ratio is the number of days between the inflection point (max of second derivative) and the maximum of new cases per day (maximum of first derivative):
 
 <img src="https://render.githubusercontent.com/render/math?math=MeasureEffect=DayOfHighestNumberOfNewCases-DayOfInflectionPoint">
 
