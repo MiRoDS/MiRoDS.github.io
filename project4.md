@@ -1,3 +1,5 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 # Capstone Project - Analysis of the Corona pandemic
 
 ![Blog Logo](./images/process.png "Blog Logo")
@@ -82,7 +84,10 @@ However, what is now the point in time at which the exponential growth slows dow
 
 ### Spreading rate and measure effect time
 Two characteristics have been calculated from the values of first and second derivatives. The first one is the mean spreading rate which explains the growth per day from the start of the outbreak till the inflection point when the spreading rate decreases:
-$$Spreading Rate=\sqrt[Number of days]{\frac{Number of cases on last day}{Number of cases on first day}}$$
+
+\begin{equation*}
+Spreading Rate=\sqrt[Number of days]{\frac{Number of cases on last day}{Number of cases on first day}}
+\end{equation*}
 
 ## Conclusion
 If you want to see some more details, see my Jupyter-Notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project4).
