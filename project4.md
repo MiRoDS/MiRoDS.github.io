@@ -83,7 +83,7 @@ However, what is now the point in time at which the exponential growth slows dow
 ### Spreading rate and measure effect time
 Two characteristics have been calculated from the values of first and second derivatives. The first one is the mean spreading rate which explains the growth per day from the start of the outbreak till the inflection point when the spreading rate decreases:
 
-<img src="https://render.githubusercontent.com/render/math?math=Spreading Rate=\sqrt[#Days]{\frac{#Cases_at_inflection_point}{#Cases_on_day_1}}">
+<img src="https://render.githubusercontent.com/render/math?math=Spreading Rate=\sqrt[Days]{\frac{Cases_at_inflection_point}{Cases_on_day_1}}">
 
 ## Conclusion
 If you want to see some more details, see my Jupyter-Notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project4).
