@@ -7,7 +7,7 @@ In this project, data from the ongoing "Corona" pandemic is analyzed. The SARS-C
 
 Therefor, two datasets are analyzed that are later on combined to one:
 
-One dataset has been taken from the CSSE at Johns Hopkins University: It shows timeseries regarding cumulative Corona cases of all affected countries. The data has been taken from the following GitHub repository. Please note, that the data is updated every day. Thus, there might be effects on the conclusion in a few weeks. For this analysis, data taken on April 24th has been used. The data is available [here](https://github.com/CSSEGISandData/COVID-19/edit/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv) (also stored in [DataScience_Project4 GitHub](https://github.com/MiRoDS/DataScience_Project4)).
+One dataset has been taken from the CSSE at Johns Hopkins University: It shows timeseries regarding cumulative Corona cases of all affected countries. The data has been taken from the following GitHub repository. Please note, that the data is updated every day. Thus, there might be effects on the conclusion in a few weeks. For this analysis, data taken on May 1st has been used. The data is available [here](https://github.com/CSSEGISandData/COVID-19/edit/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv) (also stored in [DataScience_Project4 GitHub](https://github.com/MiRoDS/DataScience_Project4)).
 
 Another dataset has been downloaded from Kaggle. It gives an overview on different Corona-related information for the affected countries and is available [here](https://www.kaggle.com/koryto/countryinfo#covid19countryinfo.csv) (also stored in [DataScience_Project4 GitHub](https://github.com/MiRoDS/DataScience_Project4)).
 
@@ -15,10 +15,9 @@ Another dataset has been downloaded from Kaggle. It gives an overview on differe
 There are a number of questions for which the analysis should give answers or at least some hints.
 
 * Question 1: How can the data be prepared so that outbreaks in different countries can be visualized?
-* Question 2: What could be a measure to compare the spreading rates of the outbreaks?
-* Question 3: What are the effects of the initial situation in the different countries on the outbreak intensity?
-* Question 4: Is it possible to come up with a measured value to compare the effectiveness of measures against the disease?
-* Question 5: What are the effects of the different measures to contain the disease?
+* Question 2: What could be measures to compare the outbreaks in the different countries?
+* Question 3: What are the effects of the initial situations in the different countries on the outbreak intensity?
+* Question 4: Is it possible to make predictions on the development of the disease?
 
 ## Data overview
 At first, several data preparation steps were necessary to prepare the both datasets for timeseries and country information before combining them to one set.
