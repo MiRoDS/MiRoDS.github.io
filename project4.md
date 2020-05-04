@@ -47,6 +47,10 @@ To make it possible to prepare the datasets, the different provinces/states of t
 
 ![Line plot: Timeseries of confirmed cases in the 10 countries with highest number of infections](./images/capstone_timeseries.png "Timeseries of confirmed cases in the 10 countries with highest number of infections")
 
+The following plot zooms into the time axis and shows only the development till end of March to give a better view on the exponential growth. Here it is clearly visible that China (not shown above since it is not amongst the top 10 countries) shows an uncommon development of the disease. There is a second strong increase of case numbers followed by a phase where no new cases occur.
+
+![Line plot: Timeseries of confirmed cases in the 10 countries with highest number of infections till end of March](./images/capstone_timeseries_till_end_of_March.png "Timeseries of confirmed cases in the 10 countries with highest number of infections till end of March")
+
 Since the start date of the outbreaks in the different countries were very different, the data has been normalize to a "day 1" which is the day when a specific number of cases has been detected in each individual country. The idea is that for a lower number of cases, the situation is under control and that the uncontrolled exponential growth has not started yet. The plot below visualizes the overlaying curves after normalizing to a "day 1" with at least 100 detected cases per country (**This is essentially an answer to question 1.**).
 
 ![Line plot: Timeseries of confirmed cases in the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases](./images/capstone_timeseries_normalized.png "Timeseries of confirmed cases in the 10 countries with highest number of infections normalized to a 'day 1' with at least 100 detected cases")
@@ -100,6 +104,7 @@ The following table shows the rates for the countries with the highest and lowes
 |Ho     |Ho            |Ho                                 |
 
 ### Correlation in the data
+![Heatmap: Correlations between different features and derived measures](./images/capstone_correlations.png "Correlations between different features and derived measures")
 
 ### Prediction of the disease development
 
