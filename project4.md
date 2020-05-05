@@ -80,11 +80,11 @@ However, what is now the point in time at which the exponential growth slows dow
 ### Spreading Factor and Days till Max
 Based on considerations on the model, two ratios have been calculated from the values of first and second derivatives. The first one is the Spreading Factor which explains the mean growth per day from the start of the outbreak till the inflection point when the spreading rate starts to decreases. d is the number of days till the inflection point:
 
-<img src="https://render.githubusercontent.com/render/math?math=Spreading Factor=\sqrt[\d]{\frac{CasesAtInflectionPoint}{CasesOnDay1}}">
+<img src="https://render.githubusercontent.com/render/math?math=SpreadingFactor=\sqrt[\d]{\frac{CasesAtInflectionPoint}{CasesOnDay1}}">
 
 Another ratio is the number of days between the inflection point (max of second derivative) and the maximum of new cases per day (maximum of first derivative):
 
-<img src="https://render.githubusercontent.com/render/math?math=Days till Max=DayOfHighestNumberOfNewCases-DayOfInflectionPoint">
+<img src="https://render.githubusercontent.com/render/math?math=DaysTillMax=DayOfHighestNumberOfNewCases-DayOfInflectionPoint">
 
 After the inflection point, the number of new cases per day starts to decrease. The idea is that this could be a ratio for the effect of measures, since the smaller the number, the more efficent are the measures.
 
@@ -100,7 +100,6 @@ The following table shows the rates for some selected countries that were early 
 |Germany    |1.254         |3            |
 |France     |1.248         |20           |
 |Iran       |1.199         |3            |
-|----------------------------------------|
 
 It is important to say that these measures give no information on the number of cases per day or in general. These are values to compare characteristics of the first exponential growth phase, e.g. it is expected that a growing of case numbers with different phases as visible for China can not be covered by the numbers.
 
@@ -110,10 +109,9 @@ In the next step, it has been checked which of the features in the dataset are c
 ![Heatmap: Correlations between different features and derived measures](./images/capstone_correlations.png "Correlations between different features and derived measures")
 
 ### Prediction of the disease development
+Two questions are related to the expected intensity and development of the diseases. Thus, features that show correlation have been used to train machine learning models. In doing so, a Random Forest Regressor has been applied with a 3-fold cross-validation (number of estimators: 10000, maximum depth: 16). In first experiments (not shown here) massive overfitting has been observed in all cases when using the whole dataset (resulting in mean scores around 0 on the test data).
 
-#### Regression models
-
-#### Transform the problem into a classification problem
+Since the Spreading Factor is a measure for the outbreak intensity, it has been checked whether it is possible to predict it just form the information about the countries. No data about the development of the disease itself has been incorporated. To this end, only those features have been selected that show a correlation above 0.2 or below -0.2 (negatively correlated). An exception is the "smoker" column. Although it shows some correlation, it has not been used due to too many NaNs.
 
 ## Conclusion
 To be discussed:
