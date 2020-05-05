@@ -90,16 +90,16 @@ After the inflection point, the number of new cases per day starts to decrease. 
 
 The following table shows the rates for some selected countries that were early in the news regarding serious outbreaks:
 
-|Country    |Spreading Rate|Days till Max|
-|-----------|--------------|-------------|
-|South Korea|1.605         |4            |
-|China      |1.425         |5            |
-|US         |1.318         |10           |
-|Spain      |1.305         |6            |
-|Italy      |1.277         |10           |
-|Germany    |1.254         |3            |
-|France     |1.248         |20           |
-|Iran       |1.199         |3            |
+|Country    |Exponential phase length|Spreading Rate|Days till Max|
+|-----------|------------------------|--------------|-------------|
+|South Korea|5                       |1.605         |4            |
+|China      |7                       |1.425         |5            |
+|US         |25                      |1.318         |10           |
+|Spain      |21                      |1.305         |6            |
+|Italy      |20                      |1.277         |10           |
+|Germany    |26                      |1.254         |3            |
+|France     |23                      |1.248         |20           |
+|Iran       |29                      |1.199         |3            |
 
 It is important to say that these measures give no information on the number of cases per day or in general. These are values to compare characteristics of the first exponential growth phase, e.g. it is expected that a growing of case numbers with different phases as visible for China can not be covered by the numbers.
 
