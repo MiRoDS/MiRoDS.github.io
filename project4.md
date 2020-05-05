@@ -88,7 +88,7 @@ Another ratio is the number of days between the inflection point (max of second 
 
 After the inflection point, the number of new cases per day starts to decrease. The idea is that this could be a ratio for the effect of measures, since the smaller the number, the more efficent are the measures.
 
-The following table shows the rates for some selected countries that were early in the news regarding serious outbreaks:
+The following table shows the ratios for some selected countries that were early in the news regarding serious outbreaks (see my Jupyter notebook for all countries [here](https://github.com/MiRoDS/DataScience_Project4)):
 
 |Country    |Exponential phase length|Spreading Rate|Days till Max|
 |-----------|------------------------|--------------|-------------|
@@ -101,27 +101,40 @@ The following table shows the rates for some selected countries that were early 
 |France     |23                      |1.248         |20           |
 |Iran       |29                      |1.199         |3            |
 
-It is important to say that these measures give no information on the number of cases per day or in general. These are values to compare characteristics of the first exponential growth phase, e.g. it is expected that a growing of case numbers with different phases as visible for China can not be covered by the numbers.
+The exponential phase length (in days) refers to the length between a detected outbreak (above the threshold) and the day of the inflection point. It is important to say that these measures give no information on the number of cases per day or in general. These are values to compare characteristics of the first exponential growth phase, e.g. it is expected that a growing of case numbers with different phases as visible for China can not be covered by the numbers.
 
 In the next step, it has been checked which of the features in the dataset are correleated. In this analysis, the previously calculated ratios have been incorpoarted, as well as, the maximal number of new cases per day which is exactly the maximum of the first derivative. To visualize the correlation, the following heat map has been used.
 
 ### Correlation in the data
 ![Heatmap: Correlations between different features and derived measures](./images/capstone_correlations.png "Correlations between different features and derived measures")
 
-### Prediction of the disease development
-Two questions are related to the expected intensity and development of the diseases. Thus, features that show correlation have been used to train machine learning models. In doing so, a Random Forest Regressor has been applied with a 3-fold cross-validation (number of estimators: 10000, maximum depth: 16). In first experiments (not shown here) massive overfitting has been observed in all cases when using the whole dataset (resulting in mean scores around 0 on the test data).
+The heat map shows some interesting results although there no clear correlations with high scores. Nevertheless, it seems that the Spreading Factor is amongst others correlated with the median age, the number of hospital beds, the health expanses, and interestingly negaitvely correlated with the fertility and the average temperature. There are some other correlations which shall not be detailed here. However, it is noteable that the maximal number of new cases per day is correlated with the GDP 2019 (score of 0.838) and the health expanses (score of 0.462). For more details on the specific values see my Jupyter notebook [here](https://github.com/MiRoDS/DataScience_Project4).
 
-Since the Spreading Factor is a measure for the outbreak intensity, it has been checked whether it is possible to predict it just form the information about the countries. No data about the development of the disease itself has been incorporated. To this end, only those features have been selected that show a correlation above 0.2 or below -0.2 (negatively correlated). An exception is the "smoker" column. Although it shows some correlation, it has not been used due to too many NaNs.
+### Prediction of the disease development
+Two of the questions that have been asked at the beginning are related to the expected intensity and development of the diseases. Thus, features that show correlation have been used to train machine learning models in different approaches. In doing so, a Random Forest Regressor has been applied with a 3-fold cross-validation (number of estimators: 10000, maximum depth: 16). In first experiments (not shown here) massive overfitting has been observed in all cases when using the whole dataset (resulting in mean scores around 0 on the test data). Thus, only those features have been selected which (1) seem to be useful according to the specific questions and which (2) show some correlation according to correlation matrix above.
+
+Since the Spreading Factor is a measure for the outbreak intensity, it has been checked whether it is possible to predict it just from the information about the countries. No data about the development of the disease itself has been incorporated. To this end, only those features have been selected that show a correlation above 0.2 or below -0.2 (negatively correlated). These are 'medianage', 'urbanpop', 'hospibed', 'gdp2019', 'healthexp', 'fertility', 'avgtemp', and 'Lat'. An exception is the "smoker" column. Although it shows correlation greater than 0.2, it has not been used due to too many NaNs. The resulting scores of the analysis are 0.917 (Training) and 0.366 (Test).
+
+After that, it has been checked whether it is possible to predict the effect of measures against the disease estimated by the values for 'Days till Max'. It is assumed that it is not possible with the given data since the overwhelming number of rows contained no information on dates at which measures have been started or whether there were measures at all. Additionally, the column 'urbanpop' and the Spreading Factor itself have been incorporated. The scores of the analysis are 0.865 (Training) and 0.043 (Test). Thus, there is no way to make predictions as expected.
+
+Finally, case numbers from the first two and four weeks are used additionally to predict the maximum number of cases per day. This could be relevant since it gives an estimation on the required capacity of intensive care units. Thus, countries can prepare for the peak from the early days of the epidemics. Additionally, features correlating with the maximum number of cases per day with a score greater than 0.2 have been used that are 'pop', 'gdp2019', and 'healthexp'. To avoid overfitting due to too many additional features, only the case numbers of every second (for the first two weeks) or every fourth day (for the first four weeks), respectively, have been used. The training for data from the first two weeks shows scores of 0.915 (Training) and -0.512 (Test). However, the training for data from the first four weeks returned scores of 0.927 (Training) and 0.385 (Test) which is not a good value but it leads into the right direction.
 
 ## Conclusion
+It has been shown in a number of steps how to visualize the development of the diseases in different countries in a way that these countries can be compared. Furthermore, it is easy to see from the visualizations whether the spreading is still in its exponential phase or whether effects are visible showing that the situation starts to go into a direction to bring it back under control.
+
+Two measures have been introduced to compare the disease: The Spreading Factor gives an estimation on the mean growth till the day at which the exponential growth starts to flatten (maximum of second derivative). The Days till Max is the number of days from the maximum of second derivative till the maximum of new cases per day. It was not really possible to find out whether the second measure is useful since the data set contains not too many information on governmental measures to contain the disease.
+
+An analysis of correlation between features of the dataset and the derived measure values showed some interesting information, e.g the Spreading Factor is slightly positively correlated with: median age, the percentage of urban population, the number of hospital beds, percentage of smokers, the GDP 2019, the health expanses, and the Latitude. However, the latter one might be a result of the temperature, since this one is slightly negatively correlated, as well as the fertility rate.
+
+The results of machine learning show that it is not an easy problem to predict the development of the COVID-19 disease. Although, the fits on the training sets were not too bad, it was not easy to generalize on independent data. However, there was some tendency to get an idea on spreading rate and an additionally, if the case number of the first 4 weeks have been observed, on the maximum peak of new cases per day, e.g. to prepare the health system for it.
+
+However, overall the used model makes a lot of simplifications. Furthermore, the used data is not really reflecting the reality. For example, it is unclear how many people are really infected since the course of the disease is in many cases a light one so that no hospitalization is required. Furthermore, there are reports on many cases where the disease is completely without sypmtons so that there is a high dark figure on uncovered cases (there are estimates in the news from a factor between 3 and 10). Since it is unclear whether a person is infected by a known case or an unknown case, it is even more challenging to model the process. Another factor is that the test capacity has been increased over the time. Thus, a fraction of the exponential growth which has been observed might be an effect of more tests per day.
+
 To be discussed:
 * Model makes only sense for the time period from start of the exponential growth phase till the begin of the first decreasing of new cases per day. Additional waves or uncommon development of the disease, e.g. in China, do not fit to the model.
 * Not enough information on measures against the disease
 * Attitude changes of people cannot be measures as well as local saturation effects
-* Many undetected cases: Factor between 3 and 10.
-* Increased test capacity over the time
 * It would make sense to create artificial data to simulate the growth process
-* Unclear whether a person is infected by a known case or an unknown case.
 
 
 If you want to see some more details, see my Jupyter-Notebook I have created for this analysis in my GitHub repository [here](https://github.com/MiRoDS/DataScience_Project4).
